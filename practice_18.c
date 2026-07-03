@@ -12,6 +12,7 @@ void inputStudents(Student *ptr, int size);
 void printStudents (Student *ptr, int size);
 Student *highestGrade (Student *ptr, int size);
 void printHighest (Student *ptr);
+void increaseGrades(Student *ptr, int size);
 
 int main()
 {
@@ -21,8 +22,11 @@ int main()
     Student *ptr = students;
     inputStudents (ptr, 5);
     printStudents (ptr, 5);
-    Student *highest =highestGrade(ptr,2);
+    Student *highest =highestGrade(ptr,5);
     printHighest(highest);
+    increaseGrades(ptr,5);
+    printf("\nAfter Increasing Grades:");
+    printStudents (ptr, 5);
     return 0;
 }
 
@@ -70,4 +74,12 @@ Student *highestGrade (Student *ptr, int size)
     }
 
     return highest_ptr;
+}
+
+void increaseGrades(Student *ptr, int size)
+{
+    for (int i=0; i<size; i++)
+    {
+        (ptr+i)->grade +=5;
+    }
 }
